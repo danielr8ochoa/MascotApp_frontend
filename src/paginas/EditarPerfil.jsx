@@ -3,11 +3,13 @@ import useAuth from "../hooks/useAuth"
 import{ useEffect, useState } from 'react'
 import Alerta from '../components/Alerta'
 
+
 const EditarPerfil = () => {
 
   const { auth, actualizarPerfil } = useAuth()
   const [perfil, setPerfil] = useState({})
   const [alerta, setAlerta] = useState({})
+  const [value, setValue] = useState()
 
   useEffect ( () => {
     setPerfil(auth)
@@ -16,7 +18,10 @@ const EditarPerfil = () => {
   const handleSubmit = async e => {
     e.preventDefault();
 
-    const { nombre, email } = perfil
+          
+    const regEx = /[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+\.[a-z]{2,8}(.[a-z{2,8}])?/g
+    
+    const { nombre, email, telefono } = perfil
 
     if([nombre, email].includes('')){
       setAlerta({
@@ -24,6 +29,9 @@ const EditarPerfil = () => {
         error: true
       })
       return
+    } else if(!regEx.test(email)) {
+      setAlerta({ msg: 'Correo inválido', error: true});
+      return;
     }
 
     const resultado = await actualizarPerfil(perfil)
@@ -53,7 +61,7 @@ const EditarPerfil = () => {
             onSubmit={handleSubmit}
           >
             <div className="my-3">
-              <label className="uppercase font-bold text-gray-600"> Nombre</label>
+              <label className="uppercase font-bold text-gray-600"> Nombre completo*</label>
               <input type="text"
                      className="border bg-gray-50 w-full p-2 mt-5 rounded-lg"
                      name="nombre"
@@ -70,6 +78,7 @@ const EditarPerfil = () => {
               <input type="text"
                      className="border bg-gray-50 w-full p-2 mt-5 rounded-lg"
                      name="web"
+                     placeholder="Ingresa la URL de tu sitio web"
                      value={perfil.web || ''}
                      onChange={e => setPerfil({
                        ...perfil,
@@ -79,10 +88,41 @@ const EditarPerfil = () => {
             </div>
 
             <div className="my-3">
+            <label className="uppercase font-bold text-gray-600">
+                        País*
+                    </label>
+                    <select                                   
+                      className="border bg-gray-50 w-full p-2 mt-5 rounded-lg"
+                      name="pais"
+                      value={perfil.pais || ''}
+                      onChange={e => setPerfil({
+                        ...perfil,
+                        [e.target.name] : e.target.value
+                      })}
+                    >
+                      <option value="México">México</option>
+                      <option value="Alemania">Alemania</option>
+                      <option value="Argentina">Argentina</option>
+                      <option value="Brasil">Brasil</option>
+                      <option value="Belice">Belice</option>
+                      <option value="Canadá">Canadá</option>
+                      <option value="Colombia">Colombia</option>
+                      <option value="Cuba">Cuba</option>
+                      <option value="Ecuador">Ecuador</option>
+                      <option value="Estados Unidos">Estados Unidos</option>
+                      <option value="Perú">Perú</option>
+                      <option value="Uruguay">Uruguay</option>
+                      <option value="Venezuela">Venezuela</option>
+                    </select>
+            </div>
+
+
+            <div className="my-3">
               <label className="uppercase font-bold text-gray-600"> Tel&eacute;fono</label>
               <input type="number"
                      className="border bg-gray-50 w-full p-2 mt-5 rounded-lg"
                      name="telefono"
+                     placeholder="Ej. (646)-123-45-67"
                      value={perfil.telefono || ''}
                      onChange={e => setPerfil({
                        ...perfil,
@@ -92,7 +132,7 @@ const EditarPerfil = () => {
             </div>
 
             <div className="my-3">
-              <label className="uppercase font-bold text-gray-600"> Correo electr&oacute;nico</label>
+              <label className="uppercase font-bold text-gray-600"> Correo electr&oacute;nico*</label>
               <input type="email"
                      className="border bg-gray-50 w-full p-2 mt-5 rounded-lg"
                      name="email"
@@ -103,12 +143,15 @@ const EditarPerfil = () => {
                      })}
               />
             </div>
+            
+            <p className="uppercase font-bold text-gray-600">* Campos obligatorios</p>
 
             <input 
                 type="submit"
                 value="Guardar cambios"
                 className="bg-teal-600 hover:bg-teal-500 text-white uppercase font-bold mt-5 mb-5 py-3 px-10 w-full border-b-4 border-teal-700 hover:border-teal-600 hover:cursor-pointer rounded-xl transition-colors"
             />
+
           </form>
           {msg && <Alerta alerta={alerta}/>}
 

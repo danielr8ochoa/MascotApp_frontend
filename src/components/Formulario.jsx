@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import Alerta from './Alerta'
 import usePacientes from '../hooks/usePacientes';
-import { HiPencilAlt } from "react-icons/hi";
 
 const Formulario = () => {
     const [nombre, setNombre ] = useState('')

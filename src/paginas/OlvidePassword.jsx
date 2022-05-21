@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Alerta from "../components/Alerta";
 import clienteAxios from "../config/axios";
 import useAuth from "../hooks/useAuth";
+import Footer from '../components/Footer'
 
 const OlvidePassword = () => {
 
@@ -37,11 +38,14 @@ const OlvidePassword = () => {
   return (
     <> 
         <div>
+          <div className="flex justify-center">
           <a title="logo" href="/"><img src="../images/MascotApp.PNG"></img></a>
-          <h1 className="text-teal-600 font-black text-6xl mt-12">Recupera tu <span className="text-black">Cuenta</span></h1>
+          </div>          
+          <h1 className="text-teal-600 font-black text-6xl mt-12 text-center">Recupera tu <span className="text-black">Cuenta</span></h1>
         </div>
 
-        <div className='mt-20 md:mt-5 shadow-lg px-5 py-10 rounded-xl bg-white'>
+        <div className="flex justify-center">
+          <div className='mt-20 md:mt-5 shadow-lg px-5 py-10 rounded-xl bg-white'>
 
           { msg && <Alerta 
             alerta={alerta}
@@ -66,18 +70,23 @@ const OlvidePassword = () => {
               <p className="uppercase text-gray-700 block text-sm font-bold"> * Campos obligatorios</p>
             </div>
             
-              <input
+            <div className="flex justify-center">
+            <input
                 type="submit"
                 value="Enviar instrucciones"
-                className="bg-teal-600 w-full py-3 px-10 rounded-xl text-white uppercase font-bold mt-5 hover:cursor-pointer hover:bg-teal-700 md:w-auto "
-            />
+                className="bg-teal-500 hover:bg-teal-400 text-white uppercase font-bold mt-5 py-3 px-10 w-full border-b-4 border-teal-700 hover:border-teal-500 hover:cursor-pointer rounded-xl md:w-auto"
+              />
+            </div>
+
             </form>
 
-            <nav className="mt-10 lg:flex lg:justify-between">
-            <Link className="block text-center my-5 text-gray-500 hover:text-slate-800" to="/registrar">¿Aún no tienes una cuenta? ¡Regístrate!</Link>
-            <Link className="block text-center my-5 text-gray-500 hover:text-slate-800" to="/">¿Ya tienes una cuenta? Inicia sesión</Link>
-        </nav>
+              <nav className="mt-5 lg:flex lg:justify-between">
+              <Link className="block text-center my-5 text-gray-500 hover:text-slate-800" to="/registrar">¿Aún no tienes una cuenta? ¡Regístrate!</Link>
+              <Link className="block text-center my-5 text-gray-500 hover:text-slate-800" to="/">¿Ya tienes una cuenta? Inicia sesión</Link>
+              </nav>
+          </div>
         </div>
+        <Footer />
     </>
   )
 }

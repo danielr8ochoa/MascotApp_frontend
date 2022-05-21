@@ -33,20 +33,19 @@ const Paciente = ({paciente}) => {
       <div className="flex justify-between my-5">
         <button 
         type="button"
-        className="bg-blue-500 hover:bg-blue-400 text-white uppercase font-bold mt-5 py-2 px-10 border-b-4 border-blue-700 hover:border-blue-500 hover:cursor-pointer rounded-xl transition-colors" 
+        className="bg-blue-500 hover:bg-blue-400 text-white uppercase font-bold mt-5 py-2 px-10 border-b-4 border-blue-700 hover:border-blue-500 hover:cursor-pointer rounded-xl transition-colors inline-flex items-center" 
         onClick={() => setEdicion(paciente)}
         >
-          Editar <FaEdit/>
+          Editar <FaEdit className="ml-2"/>
         </button> 
+
 
         <button 
         type="button" 
-        className="bg-red-600 hover:bg-red-500 text-white uppercase font-bold mt-5 py-3 px-10 border-b-4 border-red-700 hover:border-red-600 hover:cursor-pointer rounded-xl transition-colors" 
-
-        // className="py-2 px-10 bg-red-600 hover:bg-red-700 text-white uppercase font-bold rounded-lg" 
+        className="bg-red-600 hover:bg-red-500 text-white uppercase font-bold mt-5 py-3 px-10 border-b-4 border-red-700 hover:border-red-600 hover:cursor-pointer rounded-xl transition-colors inline-flex items-center" 
         onClick={() => eliminarPaciente(_id)}
         >
-          Eliminar <FaTrashAlt/>
+          Eliminar <FaTrashAlt className="ml-2"/>
         </button>
       </div>
     </div>
