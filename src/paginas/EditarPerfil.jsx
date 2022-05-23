@@ -9,7 +9,7 @@ const EditarPerfil = () => {
   const { auth, actualizarPerfil } = useAuth()
   const [perfil, setPerfil] = useState({})
   const [alerta, setAlerta] = useState({})
-  const [value, setValue] = useState()
+
 
   useEffect ( () => {
     setPerfil(auth)
@@ -19,7 +19,8 @@ const EditarPerfil = () => {
     e.preventDefault();
 
           
-    const regEx = /[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+\.[a-z]{2,8}(.[a-z{2,8}])?/g
+    const regEx = /[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+\.[a-z]{2,8}(.[a-z{2,8}])?/g;
+    const regExTel = /^(\+\d{1,3}[- ]?)?\d{10}$/;
     
     const { nombre, email, telefono } = perfil
 
@@ -32,8 +33,16 @@ const EditarPerfil = () => {
     } else if(!regEx.test(email)) {
       setAlerta({ msg: 'Correo inválido', error: true});
       return;
+    } 
+
+    if(telefono.length > 0) {
+      if(!regExTel.test(telefono) || telefono.length < 10) {
+        setAlerta({ msg: 'El teléfono debe incluir 10 dígitos', error: true});
+        return;
+      }
     }
 
+    
     const resultado = await actualizarPerfil(perfil)
 
     setAlerta(resultado)
@@ -119,10 +128,10 @@ const EditarPerfil = () => {
 
             <div className="my-3">
               <label className="uppercase font-bold text-gray-600"> Tel&eacute;fono</label>
-              <input type="number"
+              <input type="telephone"
                      className="border bg-gray-50 w-full p-2 mt-5 rounded-lg"
                      name="telefono"
-                     placeholder="Ej. (646)-123-45-67"
+                     placeholder="Ej. (646)123-45-67"
                      value={perfil.telefono || ''}
                      onChange={e => setPerfil({
                        ...perfil,

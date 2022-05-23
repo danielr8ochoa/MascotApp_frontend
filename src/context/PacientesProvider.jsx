@@ -68,7 +68,7 @@ export const PacientesProvider = ({children}) => {
     }
 
     const eliminarPaciente = async id => {
-        const confirmar = confirm('¿Confirmas que deseas eliminar ?')
+        const confirmar = confirm('¿Deseas eliminar esta cita?')
 
         if(confirmar) {
             try {

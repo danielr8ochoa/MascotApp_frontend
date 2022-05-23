@@ -29,6 +29,8 @@ const Formulario = () => {
        e.preventDefault()
 
        // Validar el formulario 
+       const regExTel = /^(\+\d{1,3}[- ]?)?\d{10}$/;
+
        if ([nombre, propietario, telefono, fecha, sintomas].includes('')) {
         setAlerta({
             msg: 'Todos los campos son obligatorios',
@@ -36,6 +38,13 @@ const Formulario = () => {
         })
         return;
        }
+
+       if(telefono.length > 0) {
+        if(!regExTel.test(telefono) || telefono.length < 10) {
+          setAlerta({ msg: 'El teléfono debe incluir 10 dígitos', error: true});
+          return;
+        }
+      }
 
        guardarPaciente({ nombre, propietario, telefono, fecha, sintomas, id })
        setAlerta({
@@ -101,7 +110,7 @@ const Formulario = () => {
                 <input
                 id="telefono"
                 type="number"
-                placeholder="Tel&eacute;fono del propietario"
+                placeholder="Ej. (646)123-45-67"
                 className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
                 value={telefono}
                 onChange={e => setTelefono(e.target.value)}
