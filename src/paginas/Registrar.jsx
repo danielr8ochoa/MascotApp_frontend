@@ -65,7 +65,7 @@ const Registrar = () => {
       <> 
         <div>
         <div className="flex justify-center">
-        <a title="logo" href="/"><img src="../images/MascotApp.PNG"></img></a>
+        <a title="logo" href="/"><img src="../assets/MascotApp.PNG"></img></a>
         </div>
           <h1 className="text-teal-600 font-black text-6xl mt-12 text-center">Regístrate y Pruebra <span className="text-black">Gratis por 30 Días </span></h1>
         </div>

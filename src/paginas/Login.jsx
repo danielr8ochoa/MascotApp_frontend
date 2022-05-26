@@ -44,15 +44,15 @@ const Login = () => {
     return (
         <>
                 <div className="flex justify-center">
-            <a title="logo" href="/"><img src="../images/MascotApp.PNG"></img></a>
+            <a title="logo" href="/"><img src="../assets/MascotApp.PNG"></img></a>
         </div>
       <div>
           <h1 className="text-teal-600 font-black text-6xl mt-5 text-center">Iniciar <span className="text-black">Sesión</span></h1>
       </div>
         <main className="container mx-auto md:grid md:grid-cols-2 mt-12 gap-10 p-5 items-center">
                 <div className="flex justify-center">
-                    <video autoPlay preload muted width="320" height="240" loop>
-                        <source src="../images/video.mp4" type="video/mp4"></source>
+                    <video autoPlay preload muted width="400" height="280" loop>
+                        <source src="../assets/perro.mp4" type="video/mp4"></source>
                     </video>
                 </div>
 
