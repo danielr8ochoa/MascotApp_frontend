@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Alerta from "../components/Alerta";
 import clienteAxios from "../config/axios";
-import useAuth from "../hooks/useAuth";
 import Footer from '../components/Footer'
 
 const OlvidePassword = () => {
@@ -39,7 +38,7 @@ const OlvidePassword = () => {
     <> 
         <div>
           <div className="flex justify-center">
-          <a title="logo" href="/"><img src="../assets/MascotApp.PNG"></img></a>
+          <a title="logo" href="/"><img src="src/assets/MascotApp.PNG"></img></a>
           </div>          
           <h1 className="text-teal-600 font-black text-6xl mt-12 text-center">Recupera tu <span className="text-black">Cuenta</span></h1>
         </div>

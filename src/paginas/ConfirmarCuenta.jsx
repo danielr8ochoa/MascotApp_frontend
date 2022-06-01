@@ -26,6 +26,7 @@ const ConfirmarCuenta = () => {
             msg: error.response.data.msg,
             error: true
            })
+           
         }
 
         setCargando(false)
@@ -36,7 +37,9 @@ const ConfirmarCuenta = () => {
     return (
       <> 
         <div>
-          <a title="logo" href="/"><img src="../images/MascotApp.PNG"></img></a>
+          <div className="flex justify-center">
+          <a title="logo" href="/"><img src="../src/assets/MascotApp.PNG"></img></a>
+          </div>          
           <h1 className="text-teal-600 font-black text-6xl mt-12">Confirma tu Cuenta y Comienza a Administrar tus <span className="text-black">Pacientes</span></h1>
         </div>
 
