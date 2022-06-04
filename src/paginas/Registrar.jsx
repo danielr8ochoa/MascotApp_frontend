@@ -136,7 +136,7 @@ const Registrar = () => {
               </label>
               <input
                   type="password"
-                  placeholder="Ingresa tu contraseña"
+                  placeholder="La contraseña debe consistir al menos de 6 dígitos"
                   className="border w-full p-3 mt-3 bg-gray-50 rounded-xl"
                   value={password}
                   onChange={e => setPassword(e.target.value)}
@@ -149,7 +149,7 @@ const Registrar = () => {
               </label>
               <input
                   type="password"
-                  placeholder="Repite tu contraseña"
+                  placeholder="La contraseña debe coincidir y consistir al menos de 6 dígitos"
                   className="border w-full p-3 mt-3 bg-gray-50 rounded-xl"
                   value={repetirPassword}
                   onChange={e => setRepetirPassword(e.target.value)}
