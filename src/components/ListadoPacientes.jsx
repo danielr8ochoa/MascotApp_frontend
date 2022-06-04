@@ -27,7 +27,7 @@ const ListadoPacientes = () => {
       ) : 
       (
         <>
-          <h2 className="font-black text-3xl text-center">No hay pacientes</h2>
+          <h2 className="font-black text-3xl text-center">No hay citas</h2>
 
           <p className="text-xl mt-5 mb-10 text-center">
             Comienza agregando una cita {''} <span className="text-teal-600 font-bold"> y aparecerá en este lugar</span>
