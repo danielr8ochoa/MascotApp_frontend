@@ -10,10 +10,10 @@ const ListadoPacientes = () => {
       { pacientes.length ? 
       (
         <>
-          <h2 className="font-black text-3xl text-center">Listado de Pacientes</h2>
+          <h2 className="font-black text-3xl text-center">Listado de Citas</h2>
 
           <p className="text-xl mt-5 mb-10 text-center">
-            Administra tus {''} <span className="text-teal-600 font-bold"> Pacientes y Citas </span>
+            Administra tus {''} <span className="text-teal-600 font-bold">Citas </span>
           </p>
 
           {pacientes.map( paciente => (
@@ -30,7 +30,7 @@ const ListadoPacientes = () => {
           <h2 className="font-black text-3xl text-center">No hay pacientes</h2>
 
           <p className="text-xl mt-5 mb-10 text-center">
-            Comienza agregando pacientes {''} <span className="text-teal-600 font-bold"> y aparecerá en este lugar</span>
+            Comienza agregando una cita {''} <span className="text-teal-600 font-bold"> y aparecerá en este lugar</span>
           </p>
         </>
       )}

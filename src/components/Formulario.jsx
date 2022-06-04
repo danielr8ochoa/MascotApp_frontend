@@ -150,7 +150,7 @@ const Formulario = () => {
                 type="submit"
                 className="bg-teal-500 hover:bg-teal-400 text-white uppercase font-bold mt-5 py-3 px-10 w-full border-b-4 border-teal-700 hover:border-teal-500 hover:cursor-pointer rounded-xl transition-colors"
 
-                value={ id ? 'Guardar cambios' : 'Agregar paciente' }
+                value={ id ? 'Guardar cambios' : 'Agregar cita' }
                 
             />
             
